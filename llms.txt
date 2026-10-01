@@ -23,6 +23,7 @@ All values on this page are max level: Descendant stats at Lv 40 (max), modules 
 - E-Mail: xelotath@outlook.de
 - Session App ID: 055065749fb6c6c2f07cb2ed15021b88eed3fc480e87215cca925ede91454e7173
 - About: https://zagathou.github.io/zagathou/
+- GitHub: https://github.com/Zagathou
 
 ## TFD Pages
 - Freyna.ORG: https://freyna.org/
