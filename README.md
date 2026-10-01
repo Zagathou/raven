@@ -11,7 +11,7 @@ overview, facts, Lv 40 (max) stats, skills, Raven-exclusive modules (max level),
 - Plain text: [`LLMS.TXT`](https://raven.freyna.org/llms.txt), [`LLMS-FULL.TXT`](https://raven.freyna.org/llms-full.txt).
 - No Nexon images are included.
 
-Related: [FREYNA.ORG](https://freyna.org/) · [MODULES.FREYNA.ORG](https://modules.freyna.org/) · [WEAPONS.FREYNA.ORG](https://weapons.freyna.org/) · [ABOUT](https://zagathou.github.io/zagathou/) · [GITHUB](https://github.com/Zagathou)
+Related: [FREYNA.ORG](https://freyna.org/) · [MODULES.FREYNA.ORG](https://modules.freyna.org/) · [WEAPONS.FREYNA.ORG](https://weapons.freyna.org/) · [NELL.FREYNA.ORG](https://nell.freyna.org/) · [ABOUT](https://zagathou.github.io/zagathou/) · [GITHUB](https://github.com/Zagathou)
 
 All game-related content © [NEXON](https://tfd.nexon.com/). Unofficial fan site – not affiliated with or endorsed by Nexon. The First Descendant is a trademark of Nexon.
 
