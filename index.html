@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raven – The First Descendant (Nexon): Skills, Stats, Modules, Story</title>
+  <meta name="description" content="Raven, Non-Attribute Melee DPS Descendant of The First Descendant: official skills (Shadow Shot, Raven Feather, Shadow Step, Vendetta, Queen of Darkness), Lv 40 stats, Transcendent modules Nightfall and Law of the Back Alley, story and research cost – from the NEXON library and Open API.">
+  <link rel="canonical" href="https://raven.freyna.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FREYNA.ORG">
+  <meta property="og:title" content="Raven – The First Descendant (Nexon): Skills, Stats, Modules, Story">
+  <meta property="og:description" content="Raven, Non-Attribute Melee DPS Descendant of The First Descendant: official skills (Shadow Shot, Raven Feather, Shadow Step, Vendetta, Queen of Darkness), Lv 40 stats, Transcendent modules Nightfall and Law of the Back Alley, story and research cost – from the NEXON library and Open API.">
+  <meta property="og:url" content="https://raven.freyna.org/">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="https://raven.freyna.org/llms.txt">
+  <link rel="alternate" type="text/plain" title="llms-full.txt" href="https://raven.freyna.org/llms-full.txt">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#1f1f23; --panel:rgba(255,255,255,0.04); --panel-strong:rgba(255,255,255,0.07); --text:rgba(255,255,255,0.88); --muted:rgba(255,255,255,0.62); --content-max:900px; --pad:18px; --accent:#03ff36; --scroll-track:rgba(0,255,0,0.00); --scroll-thumb:rgba(3,255,54,0.55); --scroll-thumb-hover:rgba(3,255,54,0.85); }
+    *{ box-sizing:border-box; }
+    html, body{ margin:0; background:var(--bg); color:var(--text); font-family:'Nunito', system-ui, sans-serif; font-size:14px; line-height:1.6; }
+    .page{ width:min(100%, 1100px); margin:0 auto; padding:var(--pad); }
+    main{ max-width:var(--content-max); margin:0 auto; }
+    h1,h2,h3,h4{ margin:0 0 10px; font-weight:700; font-family:"Comfortaa", cursive, sans-serif; }
+    h1{ font-size:26px; letter-spacing:0.2px; color:var(--accent); }
+    h2{ font-size:18px; color:var(--accent); margin-top:6px; }
+    h3{ font-size:15px; }
+    p{ margin:0 0 10px; }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; text-decoration-color:#03ff36; }
+    .card{ background:var(--panel); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:16px 18px; margin:0 0 16px; }
+    .badge{ display:inline-block; padding:2px 8px; border-radius:999px; background:color-mix(in srgb,var(--accent) 18%,transparent); border:1px solid color-mix(in srgb,var(--accent) 35%,transparent); color:var(--accent); font-weight:700; font-size:12px; letter-spacing:0.2px; }
+    .lead{ font-size:15px; }
+    .note{ border-left:3px solid var(--accent); background:rgba(3,255,54,0.06); padding:8px 12px; border-radius:10px; font-size:13px; }
+    .na{ color:var(--muted); font-size:12.5px; font-style:italic; }
+    .de{ color:var(--muted); font-weight:400; font-size:.85em; }
+    .table-wrap{ overflow-x:auto; }
+    table{ width:100%; border-collapse:collapse; margin:0 0 12px; }
+    caption{ text-align:left; color:var(--muted); font-size:12.5px; padding:0 0 6px; }
+    th, td{ padding:6px 8px; border:1px solid rgba(3,255,54,0.55); text-align:left; vertical-align:top; }
+    thead th{ background:rgba(3,255,54,0.10); color:var(--accent); font-family:"Comfortaa", sans-serif; font-size:13px; }
+    tbody th{ font-weight:700; }
+    .skill{ background:var(--panel-strong); border-radius:12px; padding:12px 14px; margin:0 0 12px; }
+    .tags{ display:flex; flex-wrap:wrap; gap:6px; }
+    blockquote{ margin:0 0 12px; padding:8px 14px; border-left:3px solid var(--accent); background:var(--panel-strong); border-radius:10px; font-style:italic; }
+    blockquote footer{ font-style:normal; color:var(--muted); font-size:12.5px; margin-top:4px; }
+    dl.terms{ display:grid; grid-template-columns:max-content 1fr; gap:4px 14px; margin:0; }
+    dl.terms dt{ font-weight:700; color:var(--accent); }
+    dl.terms dd{ margin:0; }
+    nav.toc ul{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:6px 14px; }
+    ::-webkit-scrollbar{ width:14px; height:14px; }
+    ::-webkit-scrollbar-thumb{ background:var(--scroll-thumb); border-radius:999px; }
+    *{ scrollbar-color:var(--scroll-thumb) var(--scroll-track); }
+    @media (max-width:600px){ dl.terms{ grid-template-columns:1fr; } dl.terms dd{ margin-bottom:6px; } h1{ font-size:22px; } }
+    /* ---------- TFD footer (shared on freyna.org / modules / weapons) ---------- */
+    .tfd-footer{ max-width:900px; margin:24px auto 0; padding:8px 12px 24px; text-align:center; color:var(--tfd-muted, rgba(255,255,255,0.62)); font-family:"Nunito", Tahoma, Arial, sans-serif; font-size:13px; line-height:1.55; }
+    .tfd-footer p{ margin:0 0 6px; }
+    .tfd-footer h2{ font-family:"Comfortaa", Tahoma, Arial, sans-serif; font-size:16px; color:var(--tfd-accent, #03ff36); margin:0 0 10px; }
+    .tfd-contact{ text-align:left; margin:0 0 14px; padding:16px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; color:var(--tfd-text, rgba(255,255,255,0.88)); font-size:14px; }
+    .tfd-contact dl{ margin:0; display:grid; grid-template-columns:max-content 1fr; gap:4px 12px; }
+    .tfd-contact dt{ color:var(--tfd-muted, rgba(255,255,255,0.62)); font-weight:700; }
+    .tfd-contact dd{ margin:0; min-width:0; overflow-wrap:anywhere; word-break:break-word; }
+    .tfd-contact .sid{ font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; }
+    .tfd-pages p{ margin:0 0 4px; font-weight:700; }
+    .tfd-pages ul{ list-style:none; margin:0 0 10px; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:6px 14px; }
+    .tfd-footer a{ color:var(--tfd-accent, #03ff36); }
+    @media (max-width:600px){ .tfd-contact dl{ grid-template-columns:1fr; } .tfd-contact dd{ margin-bottom:6px; } }
+    
+  </style>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://raven.freyna.org/#webpage",
+   "url": "https://raven.freyna.org/",
+   "name": "Raven – The First Descendant (Nexon): Skills, Stats, Modules, Story",
+   "description": "Raven, Non-Attribute Melee DPS Descendant of The First Descendant: official skills (Shadow Shot, Raven Feather, Shadow Step, Vendetta, Queen of Darkness), Lv 40 stats, Transcendent modules Nightfall and Law of the Back Alley, story and research cost – from the NEXON library and Open API.",
+   "inLanguage": "en",
+   "dateModified": "2026-10-01",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "FREYNA.ORG",
+    "url": "https://freyna.org/"
+   },
+   "about": {
+    "@id": "https://raven.freyna.org/#raven"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Christian Grigoriadis",
+    "alternateName": "Zagathou",
+    "url": "https://zagathou.github.io/zagathou/"
+   },
+   "citation": [
+    "https://tfd.nexon.com/en/library/descendants/101000035",
+    "https://open.api.nexon.com/static/tfd/meta/en/descendant.json",
+    "https://open.api.nexon.com/static/tfd/meta/en/module.json"
+   ]
+  },
+  {
+   "@type": "Thing",
+   "@id": "https://raven.freyna.org/#raven",
+   "disambiguatingDescription": "Playable character (Descendant) in the video game The First Descendant",
+   "name": "Raven",
+   "alternateName": "Eleanore",
+   "description": "A Non-Attribute Melee DPS who uses the shadows to wreak havoc on enemy lines. She unleashes a fierce assault on enemies with a shotgun made of shadows.",
+   "identifier": "101000035",
+   "sameAs": [
+    "https://tfd.nexon.com/en/library/descendants/101000035"
+   ],
+   "subjectOf": {
+    "@type": "VideoGame",
+    "name": "The First Descendant",
+    "publisher": {
+     "@type": "Organization",
+     "name": "Nexon",
+     "url": "https://tfd.nexon.com/"
+    }
+   },
+   "additionalProperty": [
+    {
+     "@type": "PropertyValue",
+     "name": "Attribute",
+     "value": "Non-Attribute"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Arche Type (all skills)",
+     "value": "Fusion"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Voice Actor (EN)",
+     "value": "Janine Harouni"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Custom Resource",
+     "value": "Umbra"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Ultimate version",
+     "value": "none (as of 01.10.2026)"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Max HP (Lv 40)",
+     "value": "1,516"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Max Shield (Lv 40)",
+     "value": "1,006"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Max MP (Lv 40)",
+     "value": "0"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "DEF (Lv 40)",
+     "value": "1,858"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Shield Recovery Out of Combat (Lv 40)",
+     "value": "4.88"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Shield Recovery In Combat (Lv 40)",
+     "value": "4.08"
+    }
+   ]
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://raven.freyna.org/#skills",
+   "name": "Raven skills",
+   "numberOfItems": 5,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "item": {
+      "@type": "Thing",
+      "name": "Queen of Darkness",
+      "alternateName": "Königin der Dunkelheit",
+      "description": "Defeating an enemy, grants the Custom Resource Umbra. Equipping a shotgun activates Queen of Darkness. While active, firearm attacks deal additional damage per shot that hits and grant Domination. When Veil of Night is active, increases the amount of Additional Damage. Hitting an enemy inflicted with Trace or Bleed with a firearm, reloads a certain number of Rounds for the currently equipped weapon. When Domination is at max stacks, using an active skill instantly Reloads the firearm and removes the effect. When using Roll, Raven moves farther and retrieves Blade Feathers.",
+      "disambiguatingDescription": "Passive Skill"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "item": {
+      "@type": "Thing",
+      "name": "Shadow Shot",
+      "alternateName": "Schattenschuss",
+      "description": "Can be used after firing a shotgun a certain number of times to charge. The closer to the target, the greater the damage dealt. Inflicts Trace on hit enemies. Each Shotgun attack on an enemy with Trace deals additional damage to all enemies inflicted with Trace within range. Acquires Umbra proportional to the number of enemies hit by the Skill.",
+      "disambiguatingDescription": "Active Skill"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "item": {
+      "@type": "Thing",
+      "name": "Raven Feather",
+      "alternateName": "Rabenfeder",
+      "description": "Sends a raven made of shadow flying forward. If the raven hits an enemy or terrain feature, it creates a Blade Feather at the location. If the raven does not create a Blade Feather, refunds a portion of the cooldown. Blade Feather inflicts Bleed on enemies within range. When reusing the skill, retrieves the Blade Feather and moves to that location. Grants Ambush. The raven and Blade Feather vanish when too far from Raven.",
+      "disambiguatingDescription": "Active Skill"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "item": {
+      "@type": "Thing",
+      "name": "Shadow Step",
+      "alternateName": "Schattenschritt",
+      "description": "Quickly dashes forward. When the dash ends, inflicts Trace on enemies within range and grants Veil of Night. Veil of Night is removed after negating damage a certain number of times. Each Shotgun attack on an enemy with Trace deals additional damage to all enemies inflicted with Trace within range.",
+      "disambiguatingDescription": "Active Skill"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "item": {
+      "@type": "Thing",
+      "name": "Vendetta",
+      "alternateName": "Vendetta",
+      "description": "Fires a shotgun repeatedly at nearby enemies. Additional input consumes Umbra to perform up to 5 attacks. The final attack deals heavy damage. The closer to the target, the greater the damage dealt. Reduces Incoming Damage while attacking, but being hit consumes additional Umbra Gauge. While using the skill, becomes immune to Knockdown and Knockback.",
+      "disambiguatingDescription": "Active Skill"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://raven.freyna.org/#modules",
+   "name": "Raven exclusive modules (max level)",
+   "numberOfItems": 3,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "item": {
+      "@type": "Thing",
+      "name": "Nightfall",
+      "alternateName": "Anbruch der Nacht",
+      "identifier": "254035001",
+      "description": "Changes Raven Feather to an Attack Skill. Increases AoE damage capability. (Transcendent, socket Rutile, slot Skill, capacity 7 at max level 10)"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "item": {
+      "@type": "Thing",
+      "name": "Law of the Back Alley",
+      "alternateName": "Gesetz des Hinterhofs",
+      "identifier": "254035002",
+      "description": "Changed to a form not restricted to a specific Firearm. Inflicts debuffs on the target, and deals Additional Damage proportional to the number of debuffs. (Transcendent, socket Cerulean, slot Skill, capacity 5 at max level 10)"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "item": {
+      "@type": "Thing",
+      "name": "Shadow's Resolve",
+      "alternateName": "Schattenhafte Entschlossenheit",
+      "identifier": "261001023",
+      "description": "No fixed effect text in the official data. (Ancestors, socket —, slot Main, capacity 16 at max level 0)"
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+  <div class="page">
+    <main id="content">
+      <section class="card" id="overview" aria-labelledby="h-overview">
+        <h1 id="h-overview">RAVEN – Queen of Darkness</h1>
+        <p class="lead">A Non-Attribute Melee DPS who uses the shadows to wreak havoc on enemy lines. She unleashes a fierce assault on enemies with a shotgun made of shadows.</p>
+        <p class="note">All values on this page are max level: Descendant stats at Lv 40 (max), modules at their max enhancement level (Transcendent modules Lv 10). Weapons on the TFD pages are always listed at Lv 100 with 4 stars (Unique Ability Level 4). Data source: official <a href="https://tfd.nexon.com/en/library/descendants/101000035">NEXON library – Raven</a> and the <a href="https://openapi.nexon.com/game/tfd/">Nexon Open API</a> metadata (status 01.10.2026). Images are not copied – see the official library page.</p>
+        <nav class="toc" aria-label="Sections">
+          <ul>
+            <li><a href="#facts">Facts</a></li><li><a href="#stats">Stats</a></li><li><a href="#skills">Skills</a></li><li><a href="#terms">Effects</a></li><li><a href="#ultimate">Ultimate</a></li><li><a href="#modules">Modules</a></li><li><a href="#weapons">Weapons</a></li><li><a href="#story">Story</a></li><li><a href="#equipment">Exclusive Ability</a></li><li><a href="#research">Research</a></li><li><a href="#sources">Sources</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="card" id="facts" aria-labelledby="h-facts">
+        <h2 id="h-facts">Facts</h2>
+        <div class="table-wrap">
+        <table>
+          <caption>Raven – key facts (official)</caption>
+          <tbody>
+          <tr><th scope="row">Name</th><td>Raven (DE: Raven)</td></tr>
+          <tr><th scope="row">Former name</th><td>Eleanore – the name given to her by her godfather Corvus (official story)</td></tr>
+          <tr><th scope="row">Title</th><td>Queen of Darkness (passive skill name and story)</td></tr>
+          <tr><th scope="row">Role (library feature)</th><td>Non-Attribute Melee DPS; fights with a shotgun made of shadows</td></tr>
+          <tr><th scope="row">Attribute</th><td><span class="badge">Non-Attribute</span></td></tr>
+          <tr><th scope="row">Arche type of all skills</th><td>Fusion</td></tr>
+          <tr><th scope="row">Custom Resource</th><td>Umbra (Max MP is 0)</td></tr>
+          <tr><th scope="row">Affiliation</th><td>Former weapon of the Nightfall cartel; founder and ruler of the Guild (official story)</td></tr>
+          <tr><th scope="row">Voice Actor (EN)</th><td>Janine Harouni</td></tr>
+          <tr><th scope="row">Descendant ID</th><td>101000035</td></tr>
+          <tr><th scope="row">Ultimate version</th><td>None (no Ultimate Raven in the library or Open API as of 01.10.2026)</td></tr>
+          <tr><th scope="row">Acquisition</th><td>Obtainable through Research</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section class="card" id="stats" aria-labelledby="h-stats">
+        <h2 id="h-stats">Stats (Lv 40 – max level)</h2>
+        <div class="table-wrap">
+        <table>
+          <caption>Raven base stats at Lv 40 (max) – Nexon Open API descendant.json, matches the library "Stat Info (Lv 40)"</caption>
+          <thead><tr><th scope="col">Stat</th><th scope="col">Lv 40 (max)</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">Max HP</th><td>1,516</td></tr>
+          <tr><th scope="row">Max Shield</th><td>1,006</td></tr>
+          <tr><th scope="row">Max MP</th><td>0</td></tr>
+          <tr><th scope="row">DEF</th><td>1,858</td></tr>
+          <tr><th scope="row">Shield Recovery Out of Combat</th><td>4.88</td></tr>
+          <tr><th scope="row">Shield Recovery In Combat</th><td>4.08</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section class="card" id="skills" aria-labelledby="h-skills">
+        <h2 id="h-skills">Skills</h2>
+        <p class="note">Skill descriptions are verbatim from the official library. Cooldowns, costs and numeric skill values (at any level) are not published in the official data – the library and the Open API publish descriptions only, so nothing is invented here. Raven has 0 Max MP; her skills revolve around the Custom Resource Umbra.</p>
+        <div class="table-wrap">
+        <table>
+          <caption>Skill overview (slot order as in the Open API)</caption>
+          <thead><tr><th scope="col">Skill</th><th scope="col">Slot</th><th scope="col">Type</th><th scope="col">Element</th><th scope="col">Arche</th></tr></thead>
+          <tbody>
+          <tr>
+            <th scope="row">Queen of Darkness<br><span class="de" lang="de">DE: Königin der Dunkelheit</span></th>
+            <td>Passive</td><td>Passive Skill</td><td>Non-Attribute</td><td>Fusion</td>
+          </tr>
+          <tr>
+            <th scope="row">Shadow Shot<br><span class="de" lang="de">DE: Schattenschuss</span></th>
+            <td>Skill 1</td><td>Active Skill</td><td>Non-Attribute</td><td>Fusion</td>
+          </tr>
+          <tr>
+            <th scope="row">Raven Feather<br><span class="de" lang="de">DE: Rabenfeder</span></th>
+            <td>Skill 2</td><td>Active Skill</td><td>Non-Attribute</td><td>Fusion</td>
+          </tr>
+          <tr>
+            <th scope="row">Shadow Step<br><span class="de" lang="de">DE: Schattenschritt</span></th>
+            <td>Skill 3</td><td>Active Skill</td><td>Non-Attribute</td><td>Fusion</td>
+          </tr>
+          <tr>
+            <th scope="row">Vendetta<br><span class="de" lang="de">DE: Vendetta</span></th>
+            <td>Skill 4</td><td>Active Skill</td><td>Non-Attribute</td><td>Fusion</td>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+        <article class="skill" id="skill-queen-of-darkness">
+          <h3>Queen of Darkness <span class="de" lang="de">(DE: Königin der Dunkelheit)</span></h3>
+          <p class="tags"><span class="badge">Passive</span> <span class="badge">Passive Skill</span> <span class="badge">Non-Attribute</span> <span class="badge">Fusion</span></p>
+          <p>Defeating an enemy, grants the Custom Resource Umbra.</p>
+          <p>Equipping a shotgun activates Queen of Darkness. While active, firearm attacks deal additional damage per shot that hits and grant Domination. When Veil of Night is active, increases the amount of Additional Damage. Hitting an enemy inflicted with Trace or Bleed with a firearm, reloads a certain number of Rounds for the currently equipped weapon.</p>
+          <p>When Domination is at max stacks, using an active skill instantly Reloads the firearm and removes the effect.</p>
+          <p>When using Roll, Raven moves farther and retrieves Blade Feathers.</p>
+          <p class="na">Cooldown / cost / numeric values: not published in the official data.</p>
+        </article>
+        <article class="skill" id="skill-shadow-shot">
+          <h3>Shadow Shot <span class="de" lang="de">(DE: Schattenschuss)</span></h3>
+          <p class="tags"><span class="badge">Skill 1</span> <span class="badge">Active Skill</span> <span class="badge">Non-Attribute</span> <span class="badge">Fusion</span></p>
+          <p>Can be used after firing a shotgun a certain number of times to charge. The closer to the target, the greater the damage dealt.</p>
+          <p>Inflicts Trace on hit enemies. Each Shotgun attack on an enemy with Trace deals additional damage to all enemies inflicted with Trace within range.</p>
+          <p>Acquires Umbra proportional to the number of enemies hit by the Skill.</p>
+          <p class="na">Cooldown / cost / numeric values: not published in the official data.</p>
+        </article>
+        <article class="skill" id="skill-raven-feather">
+          <h3>Raven Feather <span class="de" lang="de">(DE: Rabenfeder)</span></h3>
+          <p class="tags"><span class="badge">Skill 2</span> <span class="badge">Active Skill</span> <span class="badge">Non-Attribute</span> <span class="badge">Fusion</span></p>
+          <p>Sends a raven made of shadow flying forward. If the raven hits an enemy or terrain feature, it creates a Blade Feather at the location. If the raven does not create a Blade Feather, refunds a portion of the cooldown.</p>
+          <p>Blade Feather inflicts Bleed on enemies within range. When reusing the skill, retrieves the Blade Feather and moves to that location. Grants Ambush.</p>
+          <p>The raven and Blade Feather vanish when too far from Raven.</p>
+          <p class="na">Cooldown / cost / numeric values: not published in the official data.</p>
+        </article>
+        <article class="skill" id="skill-shadow-step">
+          <h3>Shadow Step <span class="de" lang="de">(DE: Schattenschritt)</span></h3>
+          <p class="tags"><span class="badge">Skill 3</span> <span class="badge">Active Skill</span> <span class="badge">Non-Attribute</span> <span class="badge">Fusion</span></p>
+          <p>Quickly dashes forward. When the dash ends, inflicts Trace on enemies within range and grants Veil of Night.</p>
+          <p>Veil of Night is removed after negating damage a certain number of times.</p>
+          <p>Each Shotgun attack on an enemy with Trace deals additional damage to all enemies inflicted with Trace within range.</p>
+          <p class="na">Cooldown / cost / numeric values: not published in the official data.</p>
+        </article>
+        <article class="skill" id="skill-vendetta">
+          <h3>Vendetta <span class="de" lang="de">(DE: Vendetta)</span></h3>
+          <p class="tags"><span class="badge">Skill 4</span> <span class="badge">Active Skill</span> <span class="badge">Non-Attribute</span> <span class="badge">Fusion</span></p>
+          <p>Fires a shotgun repeatedly at nearby enemies. Additional input consumes Umbra to perform up to 5 attacks. The final attack deals heavy damage.</p>
+          <p>The closer to the target, the greater the damage dealt.</p>
+          <p>Reduces Incoming Damage while attacking, but being hit consumes additional Umbra Gauge. While using the skill, becomes immune to Knockdown and Knockback.</p>
+          <p class="na">Cooldown / cost / numeric values: not published in the official data.</p>
+        </article>
+      </section>
+
+      <section class="card" id="terms" aria-labelledby="h-terms">
+        <h2 id="h-terms">Effects named in the skill texts</h2>
+        <p class="na">Summarised only from the official skill descriptions above.</p>
+        <dl class="terms">
+          <dt>Umbra</dt><dd>Custom Resource. Granted when defeating an enemy (Queen of Darkness); also acquired by Shadow Shot in proportion to enemies hit; consumed by Vendetta.</dd>
+          <dt>Trace</dt><dd>Inflicted by Shadow Shot and Shadow Step. Each Shotgun attack on an enemy with Trace deals additional damage to all enemies with Trace within range.</dd>
+          <dt>Blade Feather</dt><dd>Created by Raven Feather where the raven hits an enemy or terrain; inflicts Bleed on enemies within range; retrieved by reusing the skill or by Roll.</dd>
+          <dt>Bleed</dt><dd>Inflicted by Blade Feather. Firearm hits on enemies with Trace or Bleed reload Rounds (Queen of Darkness).</dd>
+          <dt>Ambush</dt><dd>Granted when Raven Feather is reused and Raven moves to the Blade Feather.</dd>
+          <dt>Veil of Night</dt><dd>Granted by Shadow Step; removed after negating damage a certain number of times; increases Queen of Darkness Additional Damage.</dd>
+          <dt>Domination</dt><dd>Granted by firearm hits while Queen of Darkness is active; at max stacks, using an active skill instantly reloads the firearm and removes the effect.</dd>
+        </dl>
+      </section>
+
+      <section class="card" id="ultimate" aria-labelledby="h-ultimate">
+        <h2 id="h-ultimate">Ultimate Raven</h2>
+        <p>There is <strong>no Ultimate Raven</strong> in the official library or in the Open API descendant data (checked 01.10.2026; Raven's descendant group contains only Raven).</p>
+      </section>
+
+      <section class="card" id="modules" aria-labelledby="h-modules">
+        <h2 id="h-modules">Exclusive Modules (max level)</h2>
+        <p>Modules from the Open API whose only allowed Descendant is Raven. Effect texts are verbatim at max level; Transcendent modules have 11 levels (Lv 0–10). No Raven-exclusive Ultimate or Trigger module exists in the data.</p>
+        <div class="table-wrap">
+        <table>
+          <caption>Raven-exclusive modules – Nexon Open API module.json</caption>
+          <thead><tr><th scope="col">Module</th><th scope="col">Tier</th><th scope="col">Socket</th><th scope="col">Slot</th><th scope="col">Max Level</th><th scope="col">Capacity at max level</th><th scope="col">Effect (max level)</th></tr></thead>
+          <tbody>
+          <tr>
+            <th scope="row">Nightfall<br><span class="de" lang="de">DE: Anbruch der Nacht</span></th>
+            <td>Transcendent</td><td>Rutile</td><td>Skill</td><td>Lv 10</td><td>7 (Lv 0: 17)</td>
+            <td>Changes Raven Feather to an Attack Skill.<br>Increases AoE damage capability.</td>
+          </tr>
+          <tr>
+            <th scope="row">Law of the Back Alley<br><span class="de" lang="de">DE: Gesetz des Hinterhofs</span></th>
+            <td>Transcendent</td><td>Cerulean</td><td>Skill</td><td>Lv 10</td><td>5 (Lv 0: 15)</td>
+            <td>Changed to a form not restricted to a specific Firearm.<br>Inflicts debuffs on the target, and deals Additional Damage proportional to the number of debuffs.</td>
+          </tr>
+          <tr>
+            <th scope="row">Shadow&#x27;s Resolve<br><span class="de" lang="de">DE: Schattenhafte Entschlossenheit</span></th>
+            <td>Ancestors</td><td>—</td><td>Main</td><td>— (no levels)</td><td>16</td>
+            <td>No fixed effect text in the official data (Ancestors module).</td>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+        <p>All other Descendant modules usable by Raven are listed at max level on <a href="https://modules.freyna.org/">modules.freyna.org</a>.</p>
+      </section>
+
+      <section class="card" id="weapons" aria-labelledby="h-weapons">
+        <h2 id="h-weapons">Weapons &amp; Reactor</h2>
+        <p>The official data contains <strong>no recommended weapons or reactors</strong> for Raven. What it does say: her passive <em>Queen of Darkness</em> activates when a <strong>shotgun</strong> is equipped, and Shadow Shot / Shadow Step reward Shotgun attacks on enemies with Trace. Her Transcendent module <em>Law of the Back Alley</em> changes this to "a form not restricted to a specific Firearm".</p>
+        <div class="table-wrap">
+        <table>
+          <caption>Ultimate and Transcendent shotguns in the official data (weapon type Shotgun) – full Lv 100 / 4-star data on weapons.freyna.org</caption>
+          <thead><tr><th scope="col">Shotgun</th><th scope="col">Tier</th><th scope="col">Rounds</th><th scope="col">Unique Ability</th></tr></thead>
+          <tbody>
+          <tr><th scope="row"><a href="https://tfd.nexon.com/en/library/weapons/211033001">Smithereens</a></th><td>Ultimate</td><td>High-Power Rounds</td><td>Fearlessness</td></tr>
+          <tr><th scope="row"><a href="https://tfd.nexon.com/en/library/weapons/211033002">Executor</a></th><td>Ultimate</td><td>High-Power Rounds</td><td>Impending Judgement</td></tr>
+          <tr><th scope="row"><a href="https://tfd.nexon.com/en/library/weapons/211033003">Hammer and Anvil</a></th><td>Ultimate</td><td>High-Power Rounds</td><td>Multiple Barrels</td></tr>
+          <tr><th scope="row"><a href="https://tfd.nexon.com/en/library/weapons/211034001">Unleashed Instinct</a></th><td>Transcendent</td><td>High-Power Rounds</td><td>Bloody Hunt</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>Stats and Unique Ability values (Lv 100, 4 stars): <a href="https://weapons.freyna.org/">weapons.freyna.org</a>. Listing a weapon here is not a recommendation.</p>
+      </section>
+
+      <section class="card" id="story" aria-labelledby="h-story">
+        <h2 id="h-story">Story</h2>
+        <blockquote><p>&quot;Confirmed death of primary surveillance target &#x27;Corvus.&#x27; &#x27;Nightfall&#x27; has been completely taken over by an unidentified force overnight. Note: Evidence of intervention by an unregistered Arche ability user, aka the &#x27;Ghost,&#x27; who has long been a surveillance target. Extreme caution is required.&quot;</p><footer>– An excerpt from a classified report by the Colon Special Forces, Albion Headquarters</footer></blockquote>
+        <p>Raven grew up as <strong>Eleanore</strong>, an orphan from Albion's back alleys. When she awakened an Arche ability that let her perfectly assimilate into the shadows, her godfather <strong>Corvus</strong> – the man who had given her the name Eleanore – made her the sharpest weapon of <strong>Nightfall</strong>, the most powerful faction in the back alleys.</p>
+        <p>Corvus' greed for power grew until he sold forbidden artifacts and even helpless orphans to the Vulgus as experimental subjects – a line Eleanore would never cross. She executed Corvus herself, then crushed and unified the fragmented cartels into a new, massive alliance called the <strong>Guild</strong>. Eleanore the "hunting hound" vanished, and <strong>Raven, the Queen of Darkness</strong>, came to rule.</p>
+        <p>Albion's back alleys were divided over her: a filthy traitor who repaid kindness with betrayal, or the Bloody Queen who brought strict order to a lawless land. Still, she asked herself how a life spent hiding in the shadows would differ from staying trapped in the refuge Corvus had created – so she stepped out of the shadows and, without hesitation, stood before the Albion Command that had pursued her for years.</p>
+        <p class="na">Summary of the official library story (Story tab).</p>
+      </section>
+
+      <section class="card" id="equipment" aria-labelledby="h-equipment">
+        <h2 id="h-equipment">Exclusive Equipment / Ability: Exclusive Arche, Photonic Energy Control</h2>
+        <p>Raven's Arche appears to rule the darkness, but the Magisters determined that her true ability is closer to manipulating <strong>photons</strong> – strictly limited to <strong>photon annihilation</strong>.</p>
+        <p>By annihilating photons she creates spaces devoid of light, and she is believed to convert the energy released during the annihilation into actual physical force. Several aspects defy the Magisters' current understanding of physics; they hoped to research it further, but Raven has refused.</p>
+        <blockquote><p>"Remember this, Eleanore. The perfect hound never barks until it has its prey in its jaws."<br>"That's why you had no idea until the muzzle of this gun was pressed against your neck, Father."</p><footer>– Final conversation between Corvus and Raven</footer></blockquote>
+      </section>
+
+      <section class="card" id="research" aria-labelledby="h-research">
+        <h2 id="h-research">Research (Acquisition)</h2>
+        <div class="table-wrap">
+        <table>
+          <caption>Research cost – official library. Acquisition: Obtainable through Research.</caption>
+          <thead><tr><th scope="col">Research</th><th scope="col">Time</th><th scope="col">Gold</th><th scope="col">Materials</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">Raven</th><td>16 Hours</td><td>400,000</td><td>Raven Enhanced Cells ×1</td></tr>
+          <tr><th scope="row">Raven Enhanced Cells</th><td>8 Hours</td><td>200,000</td><td>Carbon Crystal ×554 · Reverse Charging Coil ×455 · Complex Filament Seed ×100 · Raven Enhanced Cell Blueprint ×1</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="na">Drop locations of the Raven Enhanced Cell Blueprint and the materials are not listed on the official library page.</p>
+      </section>
+
+      <section class="card" id="sources" aria-labelledby="h-sources">
+        <h2 id="h-sources">Sources</h2>
+        <ul>
+          <li><a href="https://tfd.nexon.com/en/library/descendants/101000035">NEXON library – Raven</a> (feature, voice actor, skills, story, exclusive ability, Lv 40 stats, research)</li>
+          <li><a href="https://open.api.nexon.com/static/tfd/meta/en/descendant.json">Open API descendant.json</a> (stats, skills; German names from the <code>/meta/de/</code> files)</li>
+          <li><a href="https://open.api.nexon.com/static/tfd/meta/en/module.json">Open API module.json</a> (exclusive modules)</li>
+          <li><a href="https://descendant.gg/database/descendants/101000035">descendant.gg – Raven</a> (community builds; third party)</li>
+          <li>Plain-text versions for AI: <a href="llms.txt">llms.txt</a> · <a href="llms-full.txt">llms-full.txt</a></li>
+        </ul>
+      </section>
+    </main>
+    <footer class="tfd-footer">
+      <section class="tfd-contact" id="contact" aria-labelledby="contact-h">
+        <h2 id="contact-h">Contact</h2>
+        <dl>
+          <dt>Name</dt><dd>Christian Grigoriadis</dd>
+          <dt>Artist Name</dt><dd>Zagathou</dd>
+          <dt>TFD In-Game Name</dt><dd>Zagathou#4768</dd>
+          <dt>E-Mail</dt><dd><a href="mailto:xelotath@outlook.de">xelotath@outlook.de</a></dd>
+          <dt>Session App ID</dt><dd class="sid">055065749fb6c6c2f07cb2ed15021b88eed3fc480e87215cca925ede91454e7173</dd>
+          <dt>About</dt><dd><a href="https://zagathou.github.io/zagathou/">zagathou.github.io/zagathou</a></dd>
+        </dl>
+      </section>
+      <nav class="tfd-pages" aria-labelledby="tfd-pages-h">
+        <p id="tfd-pages-h">TFD Pages:</p>
+        <ul>
+          <li><a href="https://freyna.org/">Freyna.ORG</a></li>
+          <li><a href="https://modules.freyna.org/">modules.freyna.org</a></li>
+          <li><a href="https://weapons.freyna.org/">TFD Weapons</a></li>
+          <li><a href="https://raven.freyna.org/">Raven</a></li>
+          <li><a href="https://descendant.gg/">descendant.gg</a></li>
+          <li><a href="https://zagathou.github.io/zagathou/">About</a></li>
+        </ul>
+      </nav>
+      <p>Game data source: official <a href="https://tfd.nexon.com/en/library/weapons?tier=Tier3">NEXON library</a> and <a href="https://openapi.nexon.com/game/tfd/">Nexon Open API</a> metadata.</p>
+      <p>All values: max level (Descendants Lv 40, weapons Lv 100 at 4 stars / Unique Ability Level 4, modules at max enhancement level).</p>
+      <p>These webpages are optimized for Non-Agentic Artificial Intelligence and easy to read.</p>
+      <p>All game-related content © <a href="https://tfd.nexon.com/">Nexon</a><br>Unofficial fan site – not affiliated with or endorsed by Nexon. The First Descendant is a trademark of Nexon.</p>
+      <p>Last Updated: 01.10.2026</p>
+    </footer>
+  </div>
+</body>
+</html>

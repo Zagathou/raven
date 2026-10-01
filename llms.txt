@@ -1,0 +1,38 @@
+# Raven – The First Descendant (Nexon)
+
+> A Non-Attribute Melee DPS who uses the shadows to wreak havoc on enemy lines. She unleashes a fierce assault on enemies with a shotgun made of shadows. Unofficial fan page with official data only (NEXON library + Nexon Open API, 01.10.2026).
+
+Page: https://raven.freyna.org/
+Full plain-text data: https://raven.freyna.org/llms-full.txt
+Official library: https://tfd.nexon.com/en/library/descendants/101000035
+
+All values on this page are max level: Descendant stats at Lv 40 (max), modules at their max enhancement level (Transcendent modules Lv 10). Weapons on the TFD pages are always listed at Lv 100 with 4 stars (Unique Ability Level 4).
+
+## Key facts
+- Attribute: Non-Attribute · Arche type of all skills: Fusion · Custom Resource: Umbra (Max MP 0)
+- Former name: Eleanore · Title: Queen of Darkness · Voice actor (EN): Janine Harouni
+- Ultimate Raven: none (as of 01.10.2026)
+- Lv 40 (max) stats: Max HP 1,516 / Max Shield 1,006 / Max MP 0 / DEF 1,858 / Shield Recovery Out of Combat 4.88 / Shield Recovery In Combat 4.08
+- Skills: Queen of Darkness (Passive Skill); Shadow Shot (Active Skill); Raven Feather (Active Skill); Shadow Step (Active Skill); Vendetta (Active Skill)
+- Exclusive modules: Nightfall (Transcendent); Law of the Back Alley (Transcendent); Shadow's Resolve (Ancestors)
+- Research: Raven 16 Hours / 400,000 Gold / Raven Enhanced Cells x1
+
+## Contact
+- Name: Christian Grigoriadis (Artist Name: Zagathou)
+- TFD In-Game Name: Zagathou#4768
+- E-Mail: xelotath@outlook.de
+- Session App ID: 055065749fb6c6c2f07cb2ed15021b88eed3fc480e87215cca925ede91454e7173
+- About: https://zagathou.github.io/zagathou/
+
+## TFD Pages
+- Freyna.ORG: https://freyna.org/
+- Modules: https://modules.freyna.org/
+- Weapons: https://weapons.freyna.org/
+- Raven: https://raven.freyna.org/
+- descendant.gg: https://descendant.gg/
+
+All values: max level (Descendants Lv 40, weapons Lv 100 at 4 stars / Unique Ability Level 4, modules at max enhancement level).
+These webpages are optimized for Non-Agentic Artificial Intelligence and easy to read.
+All game-related content © Nexon (https://tfd.nexon.com/)
+Unofficial fan site – not affiliated with or endorsed by Nexon. The First Descendant is a trademark of Nexon.
+Last Updated: 01.10.2026
